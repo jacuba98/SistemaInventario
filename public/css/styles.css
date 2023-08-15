@@ -50,10 +50,69 @@ th {
 }
 
 .search-box button {
-    background-color: #007bff;
+    background-color: #ffffff;
     color: #fff;
     border: none;
+    border-radius: 5px;
     padding: 8px 15px;
     font-size: 14px;
     cursor: pointer;
+}
+
+/*Imgenes*/
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*Boton agregar*/
+
+.container {
+    margin-top: 20px;
+}
+
+/* Estilo para el encabezado */
+.container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el botón de agregar */
+.container .btn-excel {
+    font-size: 24px; /* Tamaño de fuente */
+    width: 60px; /* Ancho del botón */
+    height: 60px; /* Altura del botón */
+    line-height: 1; /* Alinear contenido verticalmente */
+    /*background-color: #1d6f42;*/
+    color: #313131;
+    border-radius: 5px; /* Valor que define el grado de redondez */
+    padding: 10px 10px; /* Ajusta el espaciado interior */
+    font-size: 10px; /* Tamaño de fuente */
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border: none;
+}
+
+/* Estilo para el botón de limpiar */
+/*.container .btn-danger {
+    font-size: 24px; /* Tamaño de fuente 
+    width: 40px; /* Ancho del botón 
+    height: 40px; /* Altura del botón 
+    line-height: 1; /* Alinear contenido verticalmente 
+    background-color: rgb(173, 39, 2);
+    color: #fff;
+    border-radius: 10px; /* Valor que define el grado de redondez 
+    padding: 10px 10px; /* Ajusta el espaciado interior 
+    font-size: 14px; /* Tamaño de fuente 
+    margin-bottom: 20px;
+   margin-top: 20px;
+}*/
+
+/* Agrega un margen inferior al contenedor */
+.container .mb-4 {
+    margin-bottom: 30px;
 }

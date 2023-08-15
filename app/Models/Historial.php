@@ -11,4 +11,9 @@ class Historial extends Model
 
     protected $fillable = ['accion', 'descripcion', 'registro_id'];
 
+    public function registro()
+    {
+        return $this->belongsTo(Inventario::class, 'registro_id');
+    }
+
 }

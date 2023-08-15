@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InventarioController;
+use App\Http\Controllers\HistorialController;
 
 Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario.index');
 Route::get('/inventario/create', [InventarioController::class, 'create'])->name('inventario.create');
@@ -15,7 +16,10 @@ Route::delete('/inventario/{id}', [InventarioController::class, 'destroy'])->nam
 // Nueva ruta para mostrar el historial
 Route::get('/inventario/{id}/historial', [InventarioController::class, 'historial'])->name('inventario.historial');
 
-Route::get('/inventario/export', [InventarioController::class, 'export'])->name('inventario.export');
+Route::get('/historial', [HistorialController::class, 'index'])->name('historial.index');
+
+Route::get('/export', [InventarioController::class, 'export'])->name('export');
+//Route::get('/export', [InventarioController::class, 'export']->name('export')); 
 
 Route::post('/inventario/search', [InventarioController::class, 'search'])->name('inventario.search');
 

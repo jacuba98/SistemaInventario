@@ -69,6 +69,12 @@ class InventarioController extends Controller
         $registro = Inventario::findOrFail($id);
         $registro->update($data);
 
+        Historial::create([
+            'accion' => 'actualizacion',
+            'descripcion' => "Se actualizo el registro {$registro->nombre}",
+            'registro_id' => $registro->id,
+        ]);
+
         return redirect()->route('inventario.index')->with('success', 'Registro actualizado exitosamente.');
     }
 
@@ -104,7 +110,7 @@ class InventarioController extends Controller
     // Método para exportar a Excel
     public function export()
     {
-        $fileName = 'inventario.xlsx';
-        return Excel::download(new InventarioExport(), $fileName);
+        //$fileName = 'inventario.xlsx';
+        return Excel::download(new InventarioExport(), 'inventario.xlsx');
     }
 }
