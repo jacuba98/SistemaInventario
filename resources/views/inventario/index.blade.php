@@ -4,24 +4,24 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="container">
+                        @include('custom.message')
                         <h1 class="mb-4">Inventario</h1>
                         
                         <div class="text-right mb-4">
-                            <a href="{{ route('inventario.index') }}" class="btn text-left">
-                                <img width="35" height="35" src="https://img.icons8.com/color/48/broom.png" alt="broom"/>
+                            <a href="{{ route('inventario.index') }}" class="btn text-left" data-toggle="tooltip" data-placement="top" title="Limpiar Busqueda">
+                                <img width="30" height="30" src="https://img.icons8.com/ios/50/broom.png" alt="broom"/>
                             </a>
-                            <a href="{{ route('inventario.create') }}" class="btn">
-                                <img width="35" height="35" src="https://img.icons8.com/fluency/48/add.png" alt="add"/>
+                            <a href="{{ route('inventario.create') }}" class="btn" data-toggle="tooltip" data-placement="top" title="Agregar Nuevo Registro">
+                                <img width="30" height="30" src="https://img.icons8.com/ios/50/plus-2-math.png" alt="plus-2-math"/>
                             </a>
                         </div>
                         <!-- Cuadro de búsqueda -->
                         <form action="{{ route('inventario.search') }}" method="POST">
                             @csrf
                             <div class="search-box">
+                                
                                 <input type="text" name="search" placeholder="Buscar..." />
-                                <button type="button">
-                                    <img width="35" height="35" src="https://img.icons8.com/color/48/search--v1.png" alt="search--v1"/>
-                                </button>
+                                <i class="bx bx-search-alt me-1"></i>
                             </div>
                         </form>
 
@@ -44,19 +44,26 @@
                                         <td>{{ $item->cantidad }}</td>
                                         <td>{{ $item->precio }}</td>
                                         <td>
-                                            <a href="{{ route('inventario.show', $item->id) }}">
-                                                <img width="27" height="27" src="https://img.icons8.com/color/48/visible--v1.png" alt="visible--v1"/>
-                                            </a>
-                                            <a href="{{ route('inventario.edit', $item->id) }}">
-                                                <img width="27" height="27" src="https://img.icons8.com/fluency/48/create-new.png" alt="create-new"/>
-                                            </a>
-                                            <form action="{{ route('inventario.destroy', $item->id) }}" method="POST" class="d-inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="27px" height="27px" fill-rule="nonzero"><defs><linearGradient x1="18.405" y1="10.91" x2="33.814" y2="43.484" gradientUnits="userSpaceOnUse" id="color-1"><stop offset="0" stop-color="#ef3232"></stop><stop offset="1" stop-color="#e41e1e" stop-opacity="0.74902"></stop></linearGradient></defs><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.33333,5.33333)"><path d="M39,10l-2.835,31.181c-0.093,1.03 -0.957,1.819 -1.991,1.819h-20.348c-1.034,0 -1.898,-0.789 -1.992,-1.819l-2.834,-31.181z" fill="url(#color-1)"></path><path d="M32,7c0,-1.105 -0.895,-2 -2,-2h-12c-1.105,0 -2,0.895 -2,2c0,0 0,0.634 0,1h16c0,-0.366 0,-1 0,-1z" fill="#d00101"></path><path d="M7,9.886v0c0,-0.523 0.358,-0.974 0.868,-1.086c2.305,-0.507 8.895,-1.8 16.132,-1.8c7.237,0 13.827,1.293 16.132,1.8c0.51,0.112 0.868,0.563 0.868,1.086v0c0,0.615 -0.499,1.114 -1.114,1.114h-31.772c-0.615,0 -1.114,-0.499 -1.114,-1.114z" fill-opacity="0.87843" fill="#d90000"></path></g></g></svg>
+                                            <div class="dropdown">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <img width="15" height="15" src="https://img.icons8.com/ios-glyphs/30/menu-2.png" alt="menu-2"/>
                                                 </button>
-                                            </form>
+                                                <div class="dropdown-menu">
+                                                    <a href="{{ route('inventario.show', $item->id) }}" class="dropdown-item">
+                                                        <i class="bx bx-show-alt me-1"></i> Show
+                                                    </a>
+                                                    <a href="{{ route('inventario.edit', $item->id) }}" class="dropdown-item" href="javascript:void(0);">
+                                                        <i class="bx bx-edit me-1"></i> Edit
+                                                    </a>
+                                                    <form class="dropdown-item" action="{{ route('inventario.destroy', $item->id) }}" method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit">
+                                                            <i class="bx bx-trash me-1"></i> Eliminar
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>                                                                                        
                                         </td>
                                     </tr>
                                     @endforeach

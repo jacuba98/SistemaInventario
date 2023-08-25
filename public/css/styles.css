@@ -116,3 +116,167 @@ th {
 .container .mb-4 {
     margin-bottom: 30px;
 }
+
+.col {
+    flex: 1 0 0%;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 1099;
+    display: block;
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.53;
+    text-align: left;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: none;
+    letter-spacing: normal;
+    word-break: normal;
+    word-spacing: normal;
+    white-space: normal;
+    line-break: auto;
+    font-size: 0.9375rem;
+    word-wrap: break-word;
+    opacity: 0;
+}
+.tooltip.show {
+    opacity: 1;
+}
+  
+.tooltip .tooltip-arrow {
+    position: absolute;
+    display: block;
+    width: 0.8rem;
+    height: 0.4rem;
+}
+.tooltip .tooltip-arrow::before {
+    position: absolute;
+    content: "";
+    border-color: transparent;
+    border-style: solid;
+}
+  
+.bs-tooltip-top, .bs-tooltip-auto[data-popper-placement^=top] {
+    padding: 0.4rem 0;
+}
+.bs-tooltip-top .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow {
+    bottom: 0;
+}
+.bs-tooltip-top .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=top] .tooltip-arrow::before {
+    top: -1px;
+    border-width: 0.4rem 0.4rem 0;
+    border-top-color: #233446;
+}
+  
+.bs-tooltip-end, .bs-tooltip-auto[data-popper-placement^=right] {
+    padding: 0 0.4rem;
+}
+.bs-tooltip-end .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow {
+    left: 0;
+    width: 0.4rem;
+    height: 0.8rem;
+}
+.bs-tooltip-end .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=right] .tooltip-arrow::before {
+    right: -1px;
+    border-width: 0.4rem 0.4rem 0.4rem 0;
+    border-right-color: #233446;
+}
+  
+.bs-tooltip-bottom, .bs-tooltip-auto[data-popper-placement^=bottom] {
+    padding: 0.4rem 0;
+}
+.bs-tooltip-bottom .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow {
+    top: 0;
+}
+.bs-tooltip-bottom .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=bottom] .tooltip-arrow::before {
+    bottom: -1px;
+    border-width: 0 0.4rem 0.4rem;
+    border-bottom-color: #233446;
+}
+  
+.bs-tooltip-start, .bs-tooltip-auto[data-popper-placement^=left] {
+    padding: 0 0.4rem;
+}
+.bs-tooltip-start .tooltip-arrow, .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow {
+    right: 0;
+    width: 0.4rem;
+    height: 0.8rem;
+}
+.bs-tooltip-start .tooltip-arrow::before, .bs-tooltip-auto[data-popper-placement^=left] .tooltip-arrow::before {
+    left: -1px;
+    border-width: 0.4rem 0 0.4rem 0.4rem;
+    border-left-color: #233446;
+}
+  
+.tooltip-inner {
+    max-width: 200px;
+    padding: 0.25rem 0.7rem;
+    color: #fff;
+    text-align: center;
+    background-color: #233446;
+    border-radius: 0.25rem;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-item {
+    display: block;
+    width: 100%;
+    padding: 0.532rem 1.25rem;
+    clear: both;
+    font-weight: 400;
+    color: #697a8d;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+}
+.dropdown-menu {
+    margin: 0.125rem 0;
+    box-shadow: 0 0.25rem 1rem rgba(161, 172, 184, 0.45);
+    -webkit-animation: dropdownAnimation 0.1s;
+            animation: dropdownAnimation 0.1s;
+}
+.mega-dropdown > .dropdown-menu {
+    left: 0 !important;
+    right: 0 !important;
+}
+.dropdown-menu .badge[class^=float-],
+.dropdown-menu .badge[class*=" float-"] {
+    position: relative;
+    top: 0.071em;
+}
+
+.dropdown-toggle {
+    white-space: nowrap;
+}
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.5em;
+    vertical-align: middle;
+    content: "";
+    margin-top: -0.28em;
+    width: 0.42em;
+    height: 0.42em;
+    border: 1px solid;
+    border-top: 0;
+    border-left: 0;
+    transform: rotate(45deg);
+}
+.dropdown-toggle:empty::after {
+    margin-left: 0;
+}
+
+.dropdown-toggle.hide-arrow::before, .dropdown-toggle.hide-arrow::after,
+.dropdown-toggle-hide-arrow > .dropdown-toggle::before,
+.dropdown-toggle-hide-arrow > .dropdown-toggle::after {
+  display: none;
+}
+  

@@ -34,12 +34,14 @@
                             <div>{{ Auth::user()->name }}</div>
                             <div class="ml-1">
                                 <img width="35" height="35" src="https://img.icons8.com/clouds/100/000000/user.png" alt="user"/>
+                                <i width="35" height="35" class="bi bi-person-circle"></i>
                             </div>
                         </button>
                     </x-slot>
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
+                            <i width="35" height="35" class="bi bi-person-circle"></i>
                             {{ __('Profile') }}
                         </x-dropdown-link>
 

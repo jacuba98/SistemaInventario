@@ -7,6 +7,8 @@ use App\Models\Inventario;
 use App\Models\Historial;
 use App\Exports\InventarioExport;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 
 class InventarioController extends Controller
 {
@@ -84,7 +86,15 @@ class InventarioController extends Controller
         $registro = Inventario::findOrFail($id);
         $registro->delete();
 
-        return redirect()->route('inventario.index')->with('success', 'Registro eliminado exitosamente.');
+        Historial::create([
+            'accion' => 'Eliminacion',
+            'descripcion' => "Se elimino el registro {$registro->nombre}",
+            'registro_id' => $registro->id,
+        ]);
+
+        Session::flash('success', 'Registro eliminado exitosamente.');
+
+        return Redirect::route('inventario.index');
     }
 
     public function search(Request $request)
