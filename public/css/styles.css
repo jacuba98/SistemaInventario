@@ -31,6 +31,15 @@ th {
     margin-right: 5px;
 }
 
+.btn-ico {
+    padding: 4px 10px;
+    font-size: 14px;
+    margin-right: 5px;
+}
+.btn-ico:hover {
+    color: #efb810; /* Cambia el color del icono */
+}
+
 /* Estilos para el cuadro de búsqueda */
 .search-box {
     display: flex;
@@ -95,6 +104,17 @@ th {
     margin-bottom: 20px;
     margin-top: 20px;
     border: none;
+}
+
+.icon-lg {
+    font-size: 35px; /* Ajusta el tamaño según tus necesidades */
+}
+
+.icon-margin {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /* Estilo para el botón de limpiar */

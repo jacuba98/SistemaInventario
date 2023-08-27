@@ -5,16 +5,19 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="container">
                         @include('custom.message')
-                        <h1 class="mb-4">Inventario</h1>
-                        
-                        <div class="text-right mb-4">
-                            <a href="{{ route('inventario.index') }}" class="btn text-left" data-toggle="tooltip" data-placement="top" title="Limpiar Busqueda">
-                                <img width="30" height="30" src="https://img.icons8.com/ios/50/broom.png" alt="broom"/>
-                            </a>
-                            <a href="{{ route('inventario.create') }}" class="btn" data-toggle="tooltip" data-placement="top" title="Agregar Nuevo Registro">
-                                <img width="30" height="30" src="https://img.icons8.com/ios/50/plus-2-math.png" alt="plus-2-math"/>
-                            </a>
+
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h1 class="text-left mb-4">Inventario</h1>
+                            <div class="text-right mb-4">
+                                <a href="{{ route('inventario.index') }}" class="btn text-left" data-toggle="tooltip" data-placement="top" title="Limpiar Busqueda">
+                                    <img width="30" height="30" src="https://img.icons8.com/ios/50/broom.png" alt="broom"/>
+                                </a>
+                                <a href="{{ route('inventario.create') }}" class="btn" data-toggle="tooltip" data-placement="top" title="Agregar Nuevo Registro">
+                                    <img width="30" height="30" src="https://img.icons8.com/ios/50/plus-2-math.png" alt="plus-2-math"/>
+                                </a>
+                            </div>
                         </div>
+                        
                         <!-- Cuadro de búsqueda -->
                         <form action="{{ route('inventario.search') }}" method="POST">
                             @csrf
@@ -85,6 +88,4 @@
             </div>
         </div>
     </div>
-
-    
 </x-app-layout>

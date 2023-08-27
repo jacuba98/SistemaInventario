@@ -20,6 +20,12 @@
 
         <!--CSS-->
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css')}}" class="template-customizer-core-css" />
+        <link rel="stylesheet" href="{{ asset('assets/vendor/css/theme-default.css')}}" class="template-customizer-theme-css" />
+        <link rel="stylesheet" href="{{ asset('assets/css/demo.css')}}" />
+
+        <!-- Vendors CSS -->
+        <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -43,5 +49,6 @@
                 timeOut: 3000 // Duración en milisegundos
             };
         </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </body>
 </html>
