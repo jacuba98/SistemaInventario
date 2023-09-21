@@ -18,6 +18,9 @@
         <!-- Icons. Uncomment required icon fonts -->
         <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
 
+        <!-- Agrega los estilos de Toastr -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
         <!--CSS-->
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css')}}" class="template-customizer-core-css" />
@@ -50,5 +53,17 @@
             };
         </script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Agrega el script de Toastr al final del cuerpo del documento -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+        <!-- Inicializa Toastr (opcional) -->
+        <script>
+            toastr.options = {
+                "positionClass": "toast-top-right", // Puedes ajustar la posición
+                "preventDuplicates": true,
+                "closeButton": true,
+                // Otros ajustes
+            };
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     </body>
 </html>

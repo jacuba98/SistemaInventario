@@ -14,9 +14,13 @@ class EmpleadoFactory extends Factory
     public function definition()
     {
         return [
-            'nombre' => $this->faker->name,
-            'correo' => $this->faker->unique()->safeEmail,
-            'telefono' => $this->faker->phoneNumber,
+            'no_empleado' => $this->faker->unique()->randomNumber(5),
+            'name' => $this->faker->name,
+            'email' => $this->faker->unique()->safeEmail,
+            'puesto' => $this->faker->jobTitle,
+            'departamento' => $this->faker->word,
+            'hotel_id' => rand(1,4),
+            'ad' => $this->faker->userName,
         ];
     }
 }

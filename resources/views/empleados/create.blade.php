@@ -8,7 +8,8 @@
                         <small class="text-muted float-end">Merged input group</small>
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form action="{{ route('empleados.store') }}" method="POST">
+                            @csrf
                             <!-- Numero de Colaborador -->
                             <div class="mb-3">
                                 <label class="form-label" for="basic-icon-default-fullname">Numero de Colaborador</label>
@@ -16,8 +17,8 @@
                                     <span id="basic-icon-default-fullname2" class="input-group-text">
                                         <i class='bx bxl-slack-old'></i>
                                     </span>
-                                    <x-text-input type="text" class="form-control" id="noCol"  name="noCol" placeholder="0038628" aria-label="0038628" aria-describedby="basic-icon-default-fullname2" required autofocus autocomplete="noCol" />
-                                    <x-input-error :messages="$errors->get('noCol')" class="mt-2" />
+                                    <x-text-input type="text" class="form-control" id="no_empleado"  name="no_empleado" placeholder="0038628" aria-label="0038628" aria-describedby="basic-icon-default-fullname2" required autofocus autocomplete="no_empleado" />
+                                    <x-input-error :messages="$errors->get('no_empleado')" class="mt-2" />
                                 </div>
                             </div>
 
@@ -40,8 +41,8 @@
                                     <span id="basic-icon-default-fullname2" class="input-group-text">
                                         <i class='bx bx-envelope' ></i>
                                     </span>
-                                    <x-text-input type="email" class="form-control" id="correo"  name="correo" placeholder="ejemplo@correo.com" aria-label="ejemplo@correo.com" aria-describedby="basic-icon-default-fullname2" required autofocus autocomplete="correo" />
-                                    <x-input-error :messages="$errors->get('correo')" class="mt-2" />
+                                    <x-text-input type="email" class="form-control" id="email"  name="email" placeholder="ejemplo@correo.com" aria-label="ejemplo@correo.com" aria-describedby="basic-icon-default-fullname2" required autofocus autocomplete="email" />
+                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                 </div>
                             </div>
 
@@ -71,14 +72,17 @@
 
                             <!-- Hotel -->
                             <div class="mb-3">
-                                <label class="form-label" for="basic-icon-default-fullname">Hotel</label>
+                                <label for="exampleFormControlSelect1" class="form-label">Hotel</label>
                                 <div class="input-group input-group-merge">
                                     <span id="basic-icon-default-fullname2" class="input-group-text">
                                         <i class='bx bx-building-house'></i>
                                     </span>
-                                    <x-text-input type="text" class="form-control" id="hotel"  name="hotel" placeholder="Akumal" aria-label="Akumal" aria-describedby="basic-icon-default-fullname2" required autofocus autocomplete="hotel" />
-                                    <x-input-error :messages="$errors->get('hotel')" class="mt-2" />
-                                </div>
+                                    <select name="hotel_id" class="form-control" id="hotel_id" aria-label="Default select example">
+                                        @foreach ($hoteles as $hotel)
+                                        <option value="{{ $hotel->id }}">{{ $hotel->nombre }} ({{ $hotel->tipo }})</option>
+                                    @endforeach
+                                    </select>
+                                </div>                                
                             </div>
 
                             <!-- AD -->
@@ -88,7 +92,7 @@
                                     <span id="basic-icon-default-fullname2" class="input-group-text">
                                         <i class='bx bx-at' ></i>
                                     </span>
-                                    <x-text-input type="text" class="form-control" id="ad"  name="ad" placeholder="jkatrina" aria-label="jkatrina" aria-describedby="basic-icon-default-fullname2" required autofocus autocomplete="ad" />
+                                    <x-text-input name="ad" class="form-control" id="ad" type="text" placeholder="jkatrina" aria-label="jkatrina" aria-describedby="basic-icon-default-fullname2" required/>
                                     <x-input-error :messages="$errors->get('ad')" class="mt-2" />
                                 </div>
                             </div>

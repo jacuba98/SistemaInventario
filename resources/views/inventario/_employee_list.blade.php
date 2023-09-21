@@ -3,31 +3,31 @@
         <thead>
             <tr>
                 <th>Nombre</th>
-                <th>Puesto</th>
-                <th>Ad</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody id="employeeList">
             <!-- Aquí se mostrarán los empleados -->
-            @foreach($empleados as $empleado)
+            @foreach($inventario as $inv)
                 <tr>
-                    <td>{{ $empleado->name }}</td>
-                    <td>{{ $empleado->puesto }}</td>
-                    <td>{{ $empleado->ad }}</td>
+                    <td>{{ $inv->nombre }}</td>
+                    <td>{{ $inv->cantidad }}</td>
+                    <td>{{ $inv->precio }}</td>
                     <td>
                         <div class="dropdown">
                             <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                                 <img width="15" height="15" src="https://img.icons8.com/ios-glyphs/30/menu-2.png" alt="menu-2"/>
                             </button>
                             <div class="dropdown-menu">
-                                <a href="{{ route('empleados.show', $empleado->id) }}" class="dropdown-item">
+                                <a href="{{ route('inventario.show', $inv->id) }}" class="dropdown-item">
                                     <i class="bx bx-show-alt me-1"></i> Show
                                 </a>
-                                <a href="{{ route('empleados.edit', $empleado->id) }}" class="dropdown-item" href="javascript:void(0);">
+                                <a href="{{ route('inventario.edit', $inv->id) }}" class="dropdown-item" href="javascript:void(0);">
                                     <i class="bx bx-edit me-1"></i> Edit
                                 </a>
-                                <form class="dropdown-item" action="{{ route('empleados.destroy', $empleado->id) }}" method="POST" class="d-inline">
+                                <form class="dropdown-item" action="{{ route('inventario.destroy', $inv->id) }}" method="POST" class="d-inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit">

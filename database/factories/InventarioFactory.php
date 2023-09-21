@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Factories;
+use Illuminate\Support\Str;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,9 +18,9 @@ class InventarioFactory extends Factory
     public function definition(): array
     {
         return [
-            'nombre' => fake()->name(),
-            'cantidad' => fake()->int(),
-            'precio' => fake()->name(),
+            'nombre' => $this->faker->word, // Puedes personalizar este campo según tus necesidades
+            'cantidad' => $this->faker->randomNumber(2), // Genera un número aleatorio de hasta 2 dígitos
+            'precio' => $this->faker->randomFloat(2, 1, 1000), // Genera un número decimal aleatorio con 2 decimales
         ];
     }
 }

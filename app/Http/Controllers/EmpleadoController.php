@@ -3,30 +3,41 @@
 namespace App\Http\Controllers;
 use App\Models\Empleado;
 use App\Models\Historial;
+use App\Models\Hotel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Spatie\Permission\Models\Role;
+use App\Models\User; // Asegúrate de importar tu modelo de usuario si es necesario
+
 
 class EmpleadoController extends Controller
 {
     public function index()
     {
-        $empleados = Empleado::all();
+        $empleados = Empleado::with('hotel')->get();
         return view('empleados.index', compact('empleados'));
     }
 
     public function create()
     {
-        return view('empleados.create');
+        $hoteles = Hotel::all();
+        return view('empleados.create', compact('hoteles'));
     }
 
     public function store(Request $request)
     {
+
         $data = $request->validate([
-            'nombre' => 'required',
-            'correo' => 'required',
-            'telefono' => 'required',
+            'no_empleado' => 'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            'puesto' => 'required',
+            'departamento' => 'required',
+            'hotel_id' => 'required|exists:hotels,id',
+            'ad' => 'required',
         ]);
+        //dd($data);
 
         $registro = Empleado::create($data);
 
@@ -43,24 +54,31 @@ class EmpleadoController extends Controller
     public function show($id)
     {
         $registro = Empleado::findOrFail($id);
-        return view('empleados.show', compact('registro'));
+        $hotel = Hotel::find($registro->hotel_id); // Obtiene el hotel asociado al empleado
+        return view('empleados.show', compact('registro', 'hotel'));
     }
 
     // Método para mostrar el formulario de edición
     public function edit($id)
     {
         $registro = Empleado::findOrFail($id);
-        return view('empleados.edit', compact('registro'));
+        $hoteles = Hotel::all(); // Obtén la lista de hoteles
+        $hotelSeleccionado = Hotel::find($registro->hotel_id); // Obtén el hotel asociado al empleado
+        return view('empleados.edit', compact('registro','hoteles', 'hotelSeleccionado'));
     }
 
     // Método para actualizar un registro
     public function update(Request $request, $id)
     {
-        
+        //dd($request);
         $data = $request->validate([
-            'nombre' => 'required',
-            'correo' => 'required|email',
-            'telefono' => 'required',
+            'no_empleado' => 'required',
+            'name' => 'required',
+            'email' => 'required|email',
+            'puesto' => 'required',
+            'departamento' => 'required',
+            'hotel_id' => 'required|exists:hotels,id',
+            'ad' => 'required',
         ]);
 
         //dd($data);
@@ -70,7 +88,7 @@ class EmpleadoController extends Controller
 
         Historial::create([
             'accion' => 'actualizacion',
-            'descripcion' => "Se actualizo el registro {$registro->nombre}",
+            'descripcion' => "Se actualizo el registro {$registro->name}",
             'registro_id' => $registro->id,
         ]);
 
@@ -97,10 +115,34 @@ class EmpleadoController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('query');
-        $empleados = Empleado::where('nombre', 'like', '%' . $query . '%')
-                            ->orWhere('correo', 'like', '%' . $query . '%')
+        $empleados = Empleado::where('name', 'like', '%' . $query . '%')
+                            ->orWhere('ad', 'like', '%' . $query . '%')
                             ->get();
 
         return view('empleados._employee_list', compact('empleados'));
     }
+
+    public function asignarRol($usuarioId, $rol)
+    {
+        try {
+            $usuario = User::find($usuarioId);
+
+            if (!$usuario) {
+                return redirect()->back()->with('error', 'Usuario no encontrado.');
+            }
+
+            $rol = Role::where('name', $rol)->first();
+
+            if (!$rol) {
+                return redirect()->back()->with('error', 'Rol no encontrado.');
+            }
+
+            $usuario->assignRole($rol);
+
+            return redirect()->back()->with('success', 'Rol asignado correctamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Ocurrió un error al asignar el rol.');
+        }
+    }
+
 }

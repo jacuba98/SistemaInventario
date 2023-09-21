@@ -25,6 +25,9 @@
                     <x-nav-link :href="route('empleados.index')" :active="request()->routeIs('empleados.index')">
                         {{ __('Empleados') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
+                        {{ __('Usuarios') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -35,26 +38,27 @@
                         <button class="inline-flex items-center px-3 py-2 border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
                             <div class="ml-1">
-                                <img width="35" height="35" src="https://img.icons8.com/clouds/100/000000/user.png" alt="user"/>
-                                <i width="35" height="35" class="bi bi-person-circle"></i>
+                                <i class='bx bxs-user-circle icon-lg icon-margin' ></i>
                             </div>
                         </button>
                     </x-slot>
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            <i width="35" height="35" class="bi bi-person-circle"></i>
+                            <i class='bx bxs-user'></i>
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
+                            
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
+                            <i class='bx bx-log-out' ></i>
                                 {{ __('Log Out') }}
+                                
                             </x-dropdown-link>
                         </form>
                     </x-slot>

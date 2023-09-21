@@ -13,9 +13,16 @@ return new class extends Migration
     {
         Schema::create('empleados', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre');
-            $table->string('correo')->unique();
-            $table->string('telefono');
+            $table->string('no_empleado');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('puesto');
+            $table->string('departamento');
+            $table->unsignedBigInteger('hotel_id');
+            $table->string('ad')->unique();
+
+            // Configura la clave foránea
+            $table->foreign('hotel_id')->references('id')->on('hotels');
             $table->timestamps();
         });
     }

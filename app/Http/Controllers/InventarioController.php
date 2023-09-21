@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Toastr;
 use Illuminate\Http\Request;
 use App\Models\Inventario;
 use App\Models\Historial;
@@ -45,7 +45,7 @@ class InventarioController extends Controller
         return redirect()->route('inventario.index')->with('success', 'Registro creado exitosamente.');
     }
 
-    // Método para mostrar un registro específico
+    // Método para mostrar un registro específico    no breack asistente chef, mause dañado
     public function show($id)
     {
         $registro = Inventario::findOrFail($id);
@@ -99,14 +99,12 @@ class InventarioController extends Controller
 
     public function search(Request $request)
     {
-        $searchTerm = $request->input('search');
+        $query = $request->get('query');
+        $inventario = Inventario::where('nombre', 'like', '%' . $query . '%')
+                            ->orWhere('cantidad', 'like', '%' . $query . '%')
+                            ->get();
 
-        $inventario = Inventario::where('nombre', 'LIKE', '%' . $searchTerm . '%')
-            ->orWhere('cantidad', 'LIKE', '%' . $searchTerm . '%')
-            ->orWhere('precio', 'LIKE', '%' . $searchTerm . '%')
-            ->get();
-
-        return view('inventario.index', compact('inventario'));
+        return view('inventario._employee_list', compact('inventario'));
     }
 
     public function historial($id)
