@@ -47,7 +47,9 @@ class EmpleadoController extends Controller
             'registro_id' => $registro->id,
         ]);
 
-        return redirect()->route('empleados.index')->with('success', 'Registro creado exitosamente.');
+        return response()->json(['message' => 'Registro creado exitosamente']); 
+
+        //return redirect()->route('empleados.index')->with('success', 'Registro creado exitosamente.');
     }
 
     // Método para mostrar un registro específico
@@ -91,8 +93,16 @@ class EmpleadoController extends Controller
             'descripcion' => "Se actualizo el registro {$registro->name}",
             'registro_id' => $registro->id,
         ]);
+        //return redirect()->route('empleados.index')->with('success', 'Registro actualizado exitosamente.');
+        return response()->json(['message' => 'Actualizacion exitosa']); 
 
-        return redirect()->route('empleados.index')->with('success', 'Registro actualizado exitosamente.');
+        // Almacena el mensaje en la sesión
+        //Session::flash('success', 'La acción se realizó con éxito');
+        
+        //return response()->json(['message' => 'Actualizacion exitosa']);
+        //return redirect()->route('empleados.index');
+        // Redirige a la vista "index"
+        //return redirect()->route('empleados.index');
     }
 
     // Método para eliminar un registro
@@ -107,9 +117,9 @@ class EmpleadoController extends Controller
             'registro_id' => $registro->id,
         ]);
 
-        Session::flash('success', 'Registro eliminado exitosamente.');
+        return response()->json(['message' => 'Eliminacion exitosa']);
 
-        return Redirect::route('empleados.index');
+        //return Redirect::route('empleados.index');
     }
 
     public function search(Request $request)

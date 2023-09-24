@@ -8,7 +8,7 @@
                         <small class="text-muted float-end">Merged input group</small>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('empleados.store') }}" method="POST">
+                        <form action="{{ route('empleados.store') }}" method="POST" id="miFormulario">
                             @csrf
                             <!-- Numero de Colaborador -->
                             <div class="mb-3">
@@ -102,5 +102,12 @@
                 </div>
             </div>
         </div>
+        <div id="toastr-container"></div>
     </div>
+    <script>
+        // Aquí se mostrarán los mensajes Toastr
+        function mostrarToastr(message, type) {
+            toastr[type](message, type.charAt(0).toUpperCase() + type.slice(1));
+        }
+    </script>
 </x-app-layout>

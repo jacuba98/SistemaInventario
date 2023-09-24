@@ -6,6 +6,14 @@
                     <div class="container">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h1 class="text-left mb-4">Lista de Empleados</h1>
+
+                            @if(Session::has('success'))
+                                <script>
+                                    toastr.success('{{ Session::get("success") }}');
+                                </script>
+                            @endif
+
+
                             <div class="text-right mb-4">
                                 <a href="{{ route('empleados.index') }}" class="btn-ico" data-toggle="tooltip" data-placement="top" title="Limpiar Busqueda">
                                     <i class='bx bx-eraser icon-lg icon-margin'></i>
@@ -60,7 +68,7 @@
                                                         <a href="{{ route('empleados.edit', $empleado->id) }}" class="dropdown-item" href="javascript:void(0);">
                                                             <i class="bx bx-edit me-1"></i> Edit
                                                         </a>
-                                                        <form class="dropdown-item" action="{{ route('empleados.destroy', $empleado->id) }}" method="POST" class="d-inline">
+                                                        <form class="dropdown-item" action="{{ route('empleados.destroy', $empleado->id) }}" method="POST" class="d-inline" id="miFormulario">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit">
@@ -79,7 +87,14 @@
                 </div>
             </div>
         </div>
+        <div id="toastr-container"></div>
     </div>
+    <script>
+        // Aquí se mostrarán los mensajes Toastr
+        function mostrarToastr(message, type) {
+            toastr[type](message, type.charAt(0).toUpperCase() + type.slice(1));
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>

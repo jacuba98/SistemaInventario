@@ -4,7 +4,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h1>Editar Registro</h1>
-                    <form action="{{ route('empleados.update', $registro->id) }}" method="POST">
+                    <form action="{{ route('empleados.update', $registro->id) }}" method="POST" id="miFormulario">
                         @csrf
                         @method('PUT')
 
@@ -50,7 +50,14 @@
                 </div>
             </div>
         </div>
+        <div id="toastr-container"></div>
     </div>
+    <script>
+        // Aquí se mostrarán los mensajes Toastr
+        function mostrarToastr(message, type) {
+            toastr[type](message, type.charAt(0).toUpperCase() + type.slice(1));
+        }
+    </script>
 </x-app-layout>
 
 

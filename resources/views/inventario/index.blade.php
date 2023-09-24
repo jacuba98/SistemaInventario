@@ -21,6 +21,11 @@
                                 </a>
                             </div>
                         </div>
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearRegistroModal">
+                            Agregar Nuevo Registro
+                        </button>
+                        
                         
                         <!-- Cuadro de búsqueda -->
                         <form action="{{ route('inventario.search') }}" method="post" class="mb-3">
@@ -85,6 +90,74 @@
                             </a>
                         </div>  
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+    <div class="modal fade" id="crearRegistroModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar Nuevo Registro</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Aquí coloca tus campos de formulario para agregar un nuevo registro -->
+                    <form action="{{ route('inventario.store') }}" method="POST">
+                        @csrf
+                        <!-- Equipo -->
+                        <div class="wave-group">
+                            <input required="" type="text" class="input" id="nombre"  name="nombre" required autofocus>
+                            <span class="bar"></span>
+                            <label class="label">
+                                <span class="label-char" style="--index: 0">N</span>
+                                <span class="label-char" style="--index: 1">a</span>
+                                <span class="label-char" style="--index: 2">m</span>
+                                <span class="label-char" style="--index: 3">e</span>
+                            </label>
+                        </div>
+                        <br>
+
+                        <!-- ip -->
+                        <div class="wave-group">
+                            <input required="" type="text" class="input" id="cantidad"  name="cantidad" required autofocus>
+                            <span class="bar"></span>
+                            <label class="label">
+                                <span class="label-char" style="--index: 0">C</span>
+                                <span class="label-char" style="--index: 1">a</span>
+                                <span class="label-char" style="--index: 2">n</span>
+                                <span class="label-char" style="--index: 3">t</span>
+                                <span class="label-char" style="--index: 3">i</span>
+                                <span class="label-char" style="--index: 3">d</span>
+                                <span class="label-char" style="--index: 3">a</span>
+                                <span class="label-char" style="--index: 3">d</span>
+                            </label>
+                        </div>
+                        <br>
+                        <!-- Numero -->
+                        <div class="wave-group">
+                            <input required="" type="text" class="input" id="precio"  name="precio" required autofocus>
+                            <span class="bar"></span>
+                            <label class="label">
+                                <span class="label-char" style="--index: 0">P</span>
+                                <span class="label-char" style="--index: 1">r</span>
+                                <span class="label-char" style="--index: 2">e</span>
+                                <span class="label-char" style="--index: 3">c</span>
+                                <span class="label-char" style="--index: 3">i</span>
+                                <span class="label-char" style="--index: 3">o</span>
+                            </label>
+                        </div>
+                        <!-- Agrega más campos según tus necesidades -->
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" onclick="document.querySelector('form').submit();">Guardar</button>
+                    <button type="submit" class="btn btn-primary">Send</button>
                 </div>
             </div>
         </div>
