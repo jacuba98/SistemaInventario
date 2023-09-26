@@ -2,7 +2,7 @@
     <div class="content-wrapper">
       <!-- Content -->
       <div class="container-xxl flex-grow-1 container-p-y">
-          <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Inventario /</span> Nuevo </h4>
+          <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Inventario /</span> Detalles </h4>
   
           <!-- Basic Bootstrap Table -->
           <div class="card">
@@ -19,7 +19,7 @@
                             <i class='bx bx-arrow-back'></i>
                             Volver
                         </a>
-                        <a href="{{ route('inventario.edit', $registro->id) }}" class="btn btn-success">
+                        <a href="{{ route('inventario.edit', $registro->id) }}" class="btn btn-primary">
                             <i class="bx bx-edit me-1"></i>
                             Editar
                         </a>

@@ -15,7 +15,7 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th></th>
                                     <th>Acción</th>
                                     <th>Descripción</th>
                                     <th>Fecha</th>
@@ -24,7 +24,7 @@
                             <tbody>
                                 @foreach ($historial as $registro)
                                 <tr>
-                                    <td>{{ $registro->id }}</td>
+                                    <td></td>
                                     <td>{{ $registro->accion }}</td>
                                     <td>{{ $registro->descripcion }}</td>
                                     <td>{{ $registro->created_at }}</td>

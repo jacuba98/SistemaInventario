@@ -113,6 +113,7 @@
               <table class="table">
                 <thead>
                   <tr>
+                    <th></th>
                     <th>Nombre</th>
                     <th>Cantidad</th>
                     <th>Precio</th>
@@ -122,6 +123,7 @@
                 <tbody class="table-border-bottom-0">
                     @foreach($inventario as $inv)
                     <tr>
+                        <td></td>
                         <td>{{ $inv->nombre }}</td>
                         <td>{{ $inv->cantidad }}</td>
                         <td>{{ $inv->precio }}</td>
