@@ -1,4 +1,23 @@
+/* Define variables de colores */
+:root {
+    --color-primario: #01a7c2ff; /* Color primario */
+    --color-secundario: #007090ff; /* Color secundario */
+    --color-fondo: #006989ff; /* Color de fondo */
+    --color-texto: #333; /* Color de texto principal */
+    --color-gray: #a3bac3ff;
+    --color-white: #eaebedff;
+    /* Agrega más variables según tus necesidades */
+  }
 /* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-primario);;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 
 .container {
     margin-top: 20px;
@@ -79,10 +98,6 @@ th {
 }
 
 /*Boton agregar*/
-
-.container {
-    margin-top: 20px;
-}
 
 /* Estilo para el encabezado */
 .container h1 {

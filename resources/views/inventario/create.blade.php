@@ -1,12 +1,16 @@
 <x-app-layout>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">NUEVO REGISTRO</h5>
-                        <small class="text-muted float-end">Merged input group</small>
-                    </div>
+    <div class="content-wrapper">
+        <!-- Content -->
+        <div class="container-xxl flex-grow-1 container-p-y">
+            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Inventario /</span> Nuevo </h4>
+
+            <!-- Basic Bootstrap Table -->
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="card-header">Nuevo Registro</h5>
+                </div>
+                
+                <div class="table-responsive text-nowrap">
                     <div class="card-body">
                         <form action="{{ route('inventario.store') }}" method="POST">
                             @csrf
@@ -58,11 +62,16 @@
                                 </div>
                             </div-->
 
-                            <button type="submit" class="btn btn-primary">Send</button>
+                            <button type="submit" class="btn btn-secondary">Send</button>
                         </form>
                     </div>
                 </div>
             </div>
+            <!--/ Basic Bootstrap Table -->
+
+            <hr class="my-5" />
+
         </div>
+        <!-- / Content -->
     </div>
 </x-app-layout>
