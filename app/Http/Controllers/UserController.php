@@ -15,6 +15,31 @@ class UserController extends Controller
         return view('users.index', compact('users'));
     }
 
+    public function create()
+    {
+        return view('users.create');
+    }
+
+    // Método para guardar un nuevo registro
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'contraseña' => 'required',
+        ]);
+
+        $registro = User::create($data);
+
+        Historial::create([
+            'accion' => 'creacion',
+            'descripcion' => "Se creó el registro {$registro->nombre}",
+            'registro_id' => $registro->id,
+        ]);
+
+        return redirect()->route('users.index')->with('success', 'Registro creado exitosamente.');
+    }
+
     // Método para mostrar un usuario específico
     public function show($id)
     {
@@ -50,6 +75,23 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('users.index')->with('success', 'Registro actualizado exitosamente.');
+    }
+
+    // Método para eliminar un registro
+    public function destroy($id)
+    {
+        $registro = User::findOrFail($id);
+        $registro->delete();
+
+        Historial::create([
+            'accion' => 'Eliminacion',
+            'descripcion' => "Se elimino el registro {$registro->nombre}",
+            'registro_id' => $registro->id,
+        ]);
+
+        return response()->json(['message' => 'Eliminacion exitosa']);
+
+        //return Redirect::route('empleados.index');
     }
 
 

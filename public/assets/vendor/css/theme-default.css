@@ -124,7 +124,7 @@ a.bg-primary:hover, a.bg-primary:focus {
 }
 
 .dropdown-notifications-item:not(.mark-as-read) .dropdown-notifications-read span {
-  background-color: #696cff;
+  background-color: #01a7c2ff;
 }
 
 .bg-label-primary {
@@ -221,7 +221,7 @@ button.list-group-item-primary.active {
   color: #fff;
   background-color: #01a7c2ff;
   border-color: #01a7c2ff;
-  box-shadow: 0 0.125rem 0.25rem 0 rgba(239, 184, 16, 0.2);
+  box-shadow: 0 0.125rem 0.25rem 0 rgba(163, 186, 195, 1);
 }
 .btn-primary:hover {
   color: #fff;
@@ -269,8 +269,8 @@ button.list-group-item-primary.active {
 }
 .btn-check:checked + .btn-outline-primary, .btn-check:active + .btn-outline-primary, .btn-outline-primary:active, .btn-outline-primary.active, .btn-outline-primary.dropdown-toggle.show {
   color: #fff;
-  background-color: #595cd9;
-  border-color: #595cd9;
+  background-color: #01a7c2ff;
+  border-color: #01a7c2ff;
 }
 .btn-check:checked + .btn-outline-primary:focus, .btn-check:active + .btn-outline-primary:focus, .btn-outline-primary:active:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus {
   box-shadow: none;
@@ -292,19 +292,19 @@ button.list-group-item-primary.active {
 .show > .btn-outline-primary.dropdown-toggle .badge {
   background: #fff;
   border-color: #fff;
-  color: #696cff;
+  color: #01a7c2ff;
 }
 
 .dropdown-item:not(.disabled).active,
 .dropdown-item:not(.disabled):active {
   background-color: rgba(105, 108, 255, 0.08);
-  color: #696cff !important;
+  color: #01a7c2ff !important;
 }
 
 .dropdown-menu > li:not(.disabled) > a:not(.dropdown-item):active,
 .dropdown-menu > li.active:not(.disabled) > a:not(.dropdown-item) {
   background-color: rgba(105, 108, 255, 0.08);
-  color: #696cff !important;
+  color: #01a7c2ff !important;
 }
 
 .nav .nav-link:hover, .nav .nav-link:focus {
@@ -547,20 +547,20 @@ button.list-group-item-primary.active {
 }
 
 .form-floating > .form-control:not(:-moz-placeholder-shown) ~ label {
-  color: #696cff;
+  color: #01a7c2ff;
 }
 
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label,
 .form-floating > .form-select ~ label {
-  color: #696cff;
+  color: #01a7c2ff;
 }
 .form-floating > .form-control:-webkit-autofill ~ label {
-  color: #696cff;
+  color: #01a7c2ff;
 }
 
 .svg-illustration svg {
-  fill: #696cff;
+  fill: #01a7c2ff;
 }
 
 html:not([dir=rtl]) .border-primary,
@@ -569,14 +569,14 @@ html[dir=rtl] .border-primary {
 }
 
 a {
-  color: #696cff;
+  color: #01a7c2ff;
 }
 a:hover {
-  color: #787bff;
+  color: #006989ff;
 }
 
 .fill-primary {
-  fill: #696cff;
+  fill: #01a7c2ff;
 }
 
 .bg-navbar-theme {

@@ -18,9 +18,6 @@
                 </div>
             </form>
         </div>
-        <!--div id="searchResults">
-            <!-- Aquí se mostrarán los resultados de la búsqueda -->
-        </div-->
         <!-- /Search -->
 
         <ul class="navbar-nav flex-row align-items-center ms-auto">             
@@ -73,7 +70,7 @@
                 </a>
                 </li>
                 <li>
-                <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
                 </li>
                 <li>
                 <a class="dropdown-item" href="auth-login-basic.html">

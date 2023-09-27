@@ -1,5 +1,5 @@
-<!-- Logo -->
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <!-- Logo -->
     <div class="app-brand demo">
         <span class="app-brand-logo demo">
             <div class="shrink-0 flex items-center">
@@ -19,15 +19,17 @@
 
     <ul class="menu-inner py-1">
       <!-- Dashboard -->
-      <li class="menu-item" >
-        <a href="{{ route('dashboard') }}" class="menu-link" >
-          <i class="menu-icon tf-icons bx bx-home-circle"></i>
-          <div data-i18n="Analytics">Dashboard</div>
+      <br>
+      <!-- Home -->
+      <li class="menu-item {{ Request::routeIs('dashboard') ? 'active' : '' }}">
+        <a href="{{ route('dashboard') }}" class="menu-link">
+            <i class='menu-icon tf-icons bx bx-home' ></i>
+          <div data-i18n="Analytics">Home</div>
         </a>
       </li>
 
       <!-- Inventario -->
-      <li class="menu-item">
+      <li class="menu-item {{ Request::routeIs('inventario.index') ? 'active' : '' }} || {{ Request::routeIs('inventario.create') ? 'active' : '' }} || {{ Request::routeIs('inventario.show') ? 'active' : '' }} || {{ Request::routeIs('inventario.index') ? 'active' : '' }} || {{ Request::routeIs('inventario.edit') ? 'active' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
             <i class='menu-icon tf-icons bx bx-file'></i>
           <div data-i18n="Layouts">Inventario</div>
@@ -48,7 +50,7 @@
       </li>
 
       <!-- Historial -->
-      <li class="menu-item">
+      <li class="menu-item {{ Request::routeIs('historial.index') ? 'active' : '' }}">
         <a href="{{ route('historial.index') }}" class="menu-link">
             <i class='menu-icon tf-icons bx bx-history' ></i>
           <div data-i18n="Analytics">Historial</div>
@@ -56,7 +58,7 @@
       </li>
 
       <!-- Empleados -->
-      <li class="menu-item">
+      <li class="menu-item {{ Request::routeIs('empleados.index') ? 'active' : '' }} || {{ Request::routeIs('empleados.create') ? 'active' : '' }} || {{ Request::routeIs('empleados.show') ? 'active' : '' }} || {{ Request::routeIs('empleados.index') ? 'active' : '' }} || {{ Request::routeIs('empleados.edit') ? 'active' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class='menu-icon tf-icons bx bx-user-pin'></i>
           <div data-i18n="Layouts">Empleados</div>
@@ -76,10 +78,12 @@
         </ul>
       </li>
 
+      <!-- Administrador -->
       <li class="menu-header small text-uppercase">
         <span class="menu-header-text">Administrador</span>
       </li>
-      <li class="menu-item">
+      <!--Usuarios-->
+      <li class="menu-item {{ Request::routeIs('users.index') ? 'active' : '' }} || {{ Request::routeIs('users.create') ? 'active' : '' }} || {{ Request::routeIs('users.show') ? 'active' : '' }} || {{ Request::routeIs('users.index') ? 'active' : '' }} || {{ Request::routeIs('users.edit') ? 'active' : '' }}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <i class='menu-icon tf-icons bx bxs-user-circle'></i>
           <div data-i18n="Account Settings">Usuarios</div>
@@ -98,26 +102,27 @@
         </ul>
       </li>
 
-      <!-- Misc -->
-      <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
+      <!-- Perfil -->
+      <li class="menu-header small text-uppercase"><span class="menu-header-text">Perfil</span></li>
+      <!--Usuarios-->
       <li class="menu-item">
-        <a
-          href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-          target="_blank"
-          class="menu-link"
-        >
-          <i class="menu-icon tf-icons bx bx-support"></i>
-          <div data-i18n="Support">Support</div>
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <i class='menu-icon tf-icons bx bxs-user-account' ></i>
+          <div data-i18n="Account Settings">{{ Auth::user()->name }}</div>
         </a>
+        <ul class="menu-sub">
+          <li class="menu-item">
+            <a href="{{ route('profile.edit') }}" class="menu-link">
+              <div data-i18n="Account">Configurar cuenta</div>
+            </a>
+          </li>
+        </ul>
       </li>
+      <li class="menu-header text-uppercase"></li>
       <li class="menu-item">
-        <a
-          href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-          target="_blank"
-          class="menu-link"
-        >
-          <i class="menu-icon tf-icons bx bx-file"></i>
-          <div data-i18n="Documentation">Documentation</div>
+        <a href="#" target="_blank" class="menu-link">
+          <i class='menu-icon tf-icons bx bx-power-off' ></i>
+          <div data-i18n="Documentation">Log Out</div>
         </a>
       </li>
     </ul>
